@@ -8,7 +8,9 @@
   >
     <main>
       <div class="error" v-if="weather.cod == 404">{{ weather.message }}!</div>
-      <div class="time" v-if="weather.timezone">{{ time() }}</div>
+
+      <div class="time" v-if="weather.timezone && false">{{ time() }}</div>
+
       <div class="search-box">
         <input
           class="search-bar"
