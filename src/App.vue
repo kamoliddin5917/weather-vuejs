@@ -9,7 +9,9 @@
     <main>
       <div class="error" v-if="weather.cod == 404">{{ weather.message }}!</div>
 
-      <div class="time" v-if="weather.timezone && false">{{ time() }}</div>
+      <div class="time" v-if="weather.timezone ? false : false">
+        {{ time() }}
+      </div>
 
       <div class="search-box">
         <input
@@ -64,7 +66,6 @@ export default {
 
     setResults(results) {
       this.weather = results;
-      console.log(results);
     },
     dateBuilder() {
       let d = new Date();
@@ -100,7 +101,7 @@ export default {
       return `${day} ${date} ${month} ${year}`;
     },
     time() {
-      let v = new Date(this.weather.timezone);
+      let v = new Date().getTimezoneOffset(this.weather.timezone);
       return v;
     },
   },
