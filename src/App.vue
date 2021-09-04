@@ -137,8 +137,8 @@ body {
 }
 main {
   position: relative;
-  display: grid;
-  grid-template-columns: 50% 50%;
+  display: flex;
+  justify-content: space-between;
   min-height: 100vh;
   padding: 25px;
   background-image: linear-gradient(
@@ -148,7 +148,7 @@ main {
   );
 }
 .search-box {
-  width: 90;
+  width: 50%;
 }
 .search-box .search-bar {
   margin-top: 30vh;
@@ -234,17 +234,26 @@ main {
   font-size: 40px;
   font-weight: 900;
 }
-@media only screen and(max-width: 600px) {
+@media only screen and (max-width: 600px) {
   main {
-    grid-template-columns: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
   }
-
+  .search-box {
+    width: 100%;
+  }
   .search-box .search-bar {
-    margin-top: 10vh;
+    margin-top: 5vh;
   }
 
   .location-box .location {
     margin-top: 5vh;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .weather-box .temp {
+    font-size: 60px;
   }
 }
 </style>
